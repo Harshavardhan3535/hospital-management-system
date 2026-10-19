@@ -90,10 +90,12 @@ src/main/java/com/hospital/hms/
 │
 └── service/          # Core Business Logic
     └── ... (7 services)
+```
 
 ---
 
-🗄️ Database Schema (ER Diagram)
+## 🗄️ Database Schema (ER Diagram)
+
 The database is managed by Hibernate (ddl-auto=update). Here is the relational mapping:
 
 User ↔ Role: Many-to-Many (user_roles join table).
@@ -110,7 +112,8 @@ Bill ↔ Appointment: One-to-One (Unique constraint).
 
 ---
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
+
 Layer	Technology
 Backend	Java 17, Spring Boot 3.3.5
 Security	Spring Security 6, JJWT (JSON Web Tokens)
@@ -121,7 +124,8 @@ API Testing	Postman
 
 ---
 
-🚀 Getting Started
+## 🚀 Getting Started
+
 1. Prerequisites
 Java 17+
 
@@ -157,7 +161,8 @@ Receptionist	reception1	reception123
 
 ---
 
-🧪 API Testing with Postman
+## 🧪 API Testing with Postman
+
 A complete Postman collection and environment are included in the repository root.
 
 Import HMS.postman_collection.json.
@@ -168,7 +173,7 @@ Run the Login request. The environment script will automatically save your JWT t
 
 Test the endpoints based on the role matrix below.
 
-Role Permission Matrix
+## Role Permission Matrix
 
 Action	ADMIN	RECEPTIONIST	DOCTOR	PATIENT
 Login	✅	✅	✅	✅
@@ -182,7 +187,7 @@ Generate Bill	✅	✅	❌	❌
 
 ---
 
-🧠 Architecture Decisions & Learnings
+## 🧠 Architecture Decisions & Learnings
 DTO Pattern: Entities are never returned in API responses. This prevents infinite recursion in bidirectional relationships and hides sensitive data (like password hashes).
 
 FetchType.EAGER: Used for @ManyToOne relationships in this project to prevent LazyInitializationException during DTO mapping, since the dataset is small.
@@ -201,4 +206,3 @@ Exception Handling: AccessDeniedException is handled in both SecurityConfig (for
 
 ---
 ⭐ *If you found this project helpful or interesting, please give it a star!*
-
