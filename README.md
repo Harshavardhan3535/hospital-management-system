@@ -92,7 +92,7 @@ src/main/java/com/hospital/hms/
     └── ... (7 services)
 ```
 
----
+
 
 ## 🗄️ Database Schema (ER Diagram)
 
