@@ -92,60 +92,59 @@ src/main/java/com/hospital/hms/
     └── ... (7 services)
 ```
 
-
+---
 
 ## 🗄️ Database Schema (ER Diagram)
 
-The database is managed by Hibernate (ddl-auto=update). Here is the relational mapping:
+The database is managed by Hibernate (`ddl-auto=update`). Here is the relational mapping:
 
-User ↔ Role: Many-to-Many (user_roles join table).
-
-Doctor ↔ Department: Many-to-One.
-
-Appointment ↔ Doctor: Many-to-One.
-
-Appointment ↔ Patient: Many-to-One.
-
-MedicalRecord ↔ Patient/Doctor: Many-to-One.
-
-Bill ↔ Appointment: One-to-One (Unique constraint).
+- **User ↔ Role**: Many-to-Many (`user_roles` join table).
+- **Doctor ↔ Department**: Many-to-One.
+- **Appointment ↔ Doctor**: Many-to-One.
+- **Appointment ↔ Patient**: Many-to-One.
+- **MedicalRecord ↔ Patient/Doctor**: Many-to-One.
+- **Bill ↔ Appointment**: One-to-One (Unique constraint).
 
 ---
 
 ## 🛠️ Tech Stack
 
-Layer	Technology
-Backend	Java 17, Spring Boot 3.3.5
-Security	Spring Security 6, JJWT (JSON Web Tokens)
-Database	PostgreSQL, Spring Data JPA, Hibernate 6
-Frontend	Thymeleaf, Vanilla JS (Fetch API), Custom CSS
-Build Tool	Maven
-API Testing	Postman
+| Layer | Technology |
+|---|---|
+| **Backend** | Java 17, Spring Boot 3.3.5 |
+| **Security** | Spring Security 6, JJWT (JSON Web Tokens) |
+| **Database** | PostgreSQL, Spring Data JPA, Hibernate 6 |
+| **Frontend** | Thymeleaf, Vanilla JS (Fetch API), Custom CSS |
+| **Build Tool** | Maven |
+| **API Testing** | Postman |
 
 ---
 
 ## 🚀 Getting Started
 
-1. Prerequisites
-Java 17+
+### 1. Prerequisites
+- Java 17+
+- PostgreSQL (running locally on port 5432)
+- Maven
 
-PostgreSQL (running locally on port 5432)
-
-Maven
-
-2. Database Setup
-Create a database named hms_db:
-
-sql
+### 2. Database Setup
+Create a database named `hms_db`:
+```sql
 CREATE DATABASE hms_db;
-3. Configure Application
-Open src/main/resources/application.properties and update your DB credentials:
+```
 
-properties
+### 3. Configure Application
+Open `src/main/resources/application.properties` and update your DB credentials:
+
+```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/hms_db
 spring.datasource.username=YOUR_DB_USERNAME
 spring.datasource.password=YOUR_DB_PASSWORD
+```
+
 4. Run the Application
+Run the Spring Boot application using Maven:
+
 bash
 mvn spring-boot:run
 The app will start on http://localhost:8081.
@@ -158,11 +157,7 @@ Admin	admin	admin123
 Doctor	doctor1	doctor123
 Patient	patient1	patient123
 Receptionist	reception1	reception123
-
----
-
-## 🧪 API Testing with Postman
-
+🧪 API Testing with Postman
 A complete Postman collection and environment are included in the repository root.
 
 Import HMS.postman_collection.json.
@@ -173,8 +168,7 @@ Run the Login request. The environment script will automatically save your JWT t
 
 Test the endpoints based on the role matrix below.
 
-## Role Permission Matrix
-
+Role Permission Matrix
 Action	ADMIN	RECEPTIONIST	DOCTOR	PATIENT
 Login	✅	✅	✅	✅
 Read Data (GET)	✅	✅	✅	✅
@@ -184,10 +178,7 @@ Create/Edit Doctor	✅	❌	❌	❌
 Book Appointment	✅	✅	❌	❌
 Create Medical Record	✅	❌	✅	❌
 Generate Bill	✅	✅	❌	❌
-
----
-
-## 🧠 Architecture Decisions & Learnings
+🧠 Architecture Decisions & Learnings
 DTO Pattern: Entities are never returned in API responses. This prevents infinite recursion in bidirectional relationships and hides sensitive data (like password hashes).
 
 FetchType.EAGER: Used for @ManyToOne relationships in this project to prevent LazyInitializationException during DTO mapping, since the dataset is small.
