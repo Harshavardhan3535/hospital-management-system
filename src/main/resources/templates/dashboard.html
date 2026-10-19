@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMS — Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/dashboard">🏥 HMS</a>
+        </div>
+        <div class="navbar-links">
+            <a href="/dashboard" class="active">Dashboard</a>
+            <a href="/patients">Patients</a>
+            <a href="/doctors">Doctors</a>
+            <a href="/appointments">Appointments</a>
+        </div>
+        <div class="navbar-user">
+            <span id="userInfo">Welcome, <strong>User</strong></span>
+            <button class="btn btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-container">
+        <div class="page-header">
+            <h1>Dashboard</h1>
+            <p id="welcomeMessage">Welcome back!</p>
+        </div>
+
+        <!-- Stat Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="patientCount">-</div>
+                    <div class="stat-label">Patients</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">👨‍⚕️</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="doctorCount">-</div>
+                    <div class="stat-label">Doctors</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="appointmentCount">-</div>
+                    <div class="stat-label">Appointments</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="pendingBills">-</div>
+                    <div class="stat-label">Pending Bills</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="section">
+            <h2>Quick Actions</h2>
+            <div class="quick-links">
+                <a href="/patients" class="quick-link-card">
+                    <div class="quick-link-icon">👥</div>
+                    <h3>Manage Patients</h3>
+                    <p>View, add, edit patients</p>
+                </a>
+                <a href="/doctors" class="quick-link-card">
+                    <div class="quick-link-icon">👨‍⚕️</div>
+                    <h3>Manage Doctors</h3>
+                    <p>View doctors by department</p>
+                </a>
+                <a href="/appointments" class="quick-link-card">
+                    <div class="quick-link-icon">📅</div>
+                    <h3>Appointments</h3>
+                    <p>Book, view, update status</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script th:src="@{/js/auth.js}"></script>
+    <script th:src="@{/js/dashboard.js}"></script>
+</body>
+</html>

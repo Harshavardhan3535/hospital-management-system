@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMS — Login</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <!-- Left Side: Image & Branding -->
+        <div class="login-left"></div>
+
+        <!-- Right Side: Form -->
+        <div class="login-right">
+            <div class="login-header">
+                <h1>🏥 HMS</h1>
+                <p>Sign in to your account</p>
+            </div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Enter username" 
+                        required 
+                        autocomplete="username"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter password" 
+                        required 
+                        autocomplete="current-password"
+                    />
+                </div>
+
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+                <button type="submit" id="loginBtn" class="btn btn-primary btn-block">
+                    Sign In
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p><strong>Demo Accounts:</strong></p>
+                <ul style="list-style: none; padding: 0; margin-top: 8px; line-height: 1.8;">
+                    <li><code>admin</code> / <code>admin123</code></li>
+                    <li><code>doctor1</code> / <code>doctor123</code></li>
+                    <li><code>patient1</code> / <code>patient123</code></li>
+                    <li><code>reception1</code> / <code>reception123</code></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script th:src="@{/js/auth.js}"></script>
+</body>
+</html>
