@@ -91,6 +91,7 @@ src/main/java/com/hospital/hms/
 └── service/          # Core Business Logic
     └── ... (7 services)
 
+---
 
 🗄️ Database Schema (ER Diagram)
 The database is managed by Hibernate (ddl-auto=update). Here is the relational mapping:
@@ -107,6 +108,8 @@ MedicalRecord ↔ Patient/Doctor: Many-to-One.
 
 Bill ↔ Appointment: One-to-One (Unique constraint).
 
+---
+
 🛠️ Tech Stack
 Layer	Technology
 Backend	Java 17, Spring Boot 3.3.5
@@ -115,6 +118,9 @@ Database	PostgreSQL, Spring Data JPA, Hibernate 6
 Frontend	Thymeleaf, Vanilla JS (Fetch API), Custom CSS
 Build Tool	Maven
 API Testing	Postman
+
+---
+
 🚀 Getting Started
 1. Prerequisites
 Java 17+
@@ -148,6 +154,9 @@ Admin	admin	admin123
 Doctor	doctor1	doctor123
 Patient	patient1	patient123
 Receptionist	reception1	reception123
+
+---
+
 🧪 API Testing with Postman
 A complete Postman collection and environment are included in the repository root.
 
@@ -160,6 +169,7 @@ Run the Login request. The environment script will automatically save your JWT t
 Test the endpoints based on the role matrix below.
 
 Role Permission Matrix
+
 Action	ADMIN	RECEPTIONIST	DOCTOR	PATIENT
 Login	✅	✅	✅	✅
 Read Data (GET)	✅	✅	✅	✅
@@ -169,6 +179,9 @@ Create/Edit Doctor	✅	❌	❌	❌
 Book Appointment	✅	✅	❌	❌
 Create Medical Record	✅	❌	✅	❌
 Generate Bill	✅	✅	❌	❌
+
+---
+
 🧠 Architecture Decisions & Learnings
 DTO Pattern: Entities are never returned in API responses. This prevents infinite recursion in bidirectional relationships and hides sensitive data (like password hashes).
 
@@ -177,6 +190,8 @@ FetchType.EAGER: Used for @ManyToOne relationships in this project to prevent La
 Stateless Security: No HTTP sessions are created. Every request is validated by the JwtAuthenticationFilter.
 
 Exception Handling: AccessDeniedException is handled in both SecurityConfig (for filter-level blocks) and GlobalExceptionHandler (for @PreAuthorize blocks) to ensure consistent JSON 403 responses.
+
+---
 
 ## 👤 Author
 
