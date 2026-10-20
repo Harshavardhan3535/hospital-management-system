@@ -7,6 +7,14 @@ This project demonstrates enterprise-level backend architecture, robust role-bas
 
 ---
 
+## 🏗️ Project Workflow & Architecture
+
+The system follows a modern N-Tier architecture with a secure JWT authentication layer and a layered backend.
+
+<img src="docs/screenshots/architecture.png" width="100%" alt="HMS Architecture">
+
+---
+
 ## 📸 Interface Preview
 
 | 🔐 Login | 📊 Dashboard |
