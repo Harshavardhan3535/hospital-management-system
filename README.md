@@ -212,6 +212,16 @@ A complete Postman collection and environment are included in the repository roo
 
 - **Exception Handling:** `AccessDeniedException` is handled in both `SecurityConfig` (for filter-level blocks) and `GlobalExceptionHandler` (for `@PreAuthorize` blocks) to ensure consistent JSON 403 responses.
 
+- **Passwords are hashed using BCrypt:** Secure password storage using `BCryptPasswordEncoder`.
+
+- **Input Validation:** Implemented Bean Validation (`@Valid`, `@NotBlank`, `@Email`) across DTOs.
+
+---
+
+## 📚 Project Defense & Interview Q&A
+
+Planning to interview me? Check out [INTERVIEW_QA.md](INTERVIEW_QA.md) to see how I defend my architectural decisions, handle edge cases, and discuss scaling this application.
+
 ---
 
 ## 👤 Author
