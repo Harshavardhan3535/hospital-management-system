@@ -2,7 +2,7 @@
 // HMS — Authentication Module
 // ==========================================
 
-const API_BASE = 'http://localhost:8081';
+const API_BASE = 'https://hms-demo-v2.onrender.com';
 
 // ==========================================
 // Login handler
