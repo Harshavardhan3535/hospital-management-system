@@ -7,6 +7,11 @@ This project demonstrates enterprise-level backend architecture, robust role-bas
 
 ---
 
+### 🌐 [Live Demo: https://hms-demo-v2.onrender.com](https://hms-demo-v2.onrender.com)
+*(Note: Hosted on Render's free tier. The first load may take 30-50 seconds to wake up).*
+
+---
+
 ## 🏗️ Project Workflow & Architecture
 
 The system follows a modern N-Tier architecture with a secure JWT authentication layer and a layered backend.
