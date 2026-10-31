@@ -37,3 +37,6 @@ This document contains common technical questions asked during interviews based 
 2. **Caching:** Add Redis caching for read-heavy endpoints.
 3. **Frontend:** Decouple the Thymeleaf frontend and build a React frontend served via a CDN.
 4. **Infrastructure:** Containerize the Spring Boot app with Docker and deploy behind a Load Balancer (like AWS ALB).
+
+### 11. What was the hardest part of deploying this application?
+**Answer:** "My first deployments failed with a Hibernate dialect error. That turned out to be a symptom of a failed database connection, caused by a malformed credential in the config. After that I hit a port binding issue, because Render assigns the port dynamically, so I read it from the PORT variable."
